@@ -21,6 +21,33 @@ deque<int> bin_conv(int dec){
     return out;
 }
 
+string hex_conv(deque<int> in) {
+    deque<int> bin = in;
+    int i;
+    int temp;
+    int sum = 0;
+    string out = "0x";
+    if (size(bin) % 4 != 0) {
+        while (size(bin) % 4 != 0) {
+            bin.push_front(0);
+        }
+    }
+    for (i = 0; i <= (size(bin) - 1); i++) {
+        temp = 3 - (i % 4);
+        if (temp == 3) {
+            sum = 0;
+        }
+        if (bin.at(i) == 1) {
+            sum = sum + pow(2, temp);
+        }
+        if (temp == 0) {
+            out = out + to_string(sum);
+        }
+    }
+    
+    return out;
+}
+
 int main(void) {
     int dec;
 
@@ -36,5 +63,8 @@ int main(void) {
     }
     cout << endl;
 
+    string hex = hex_conv(bin);
+    cout << "Hexidecimal: " << hex << endl;
+    
     return 0;
 }
