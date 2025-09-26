@@ -8,7 +8,7 @@
 #include <random>
 #include <cstdlib>
 
-//using vectors for everything.
+//using vectors for everything, minus the deck.
 using namespace std;
 
 //room global deque
@@ -303,7 +303,7 @@ int main(void){
         system("clear");
         i = 1;
         for (string card : room){
-            cout << i << ": " << card_reader(card) << " (" << room.at((i-1)) << ")" << endl;
+            cout << i << ": " << card_reader(card) << endl;
             i++;
         }
         bool ene = ene_check(room);
