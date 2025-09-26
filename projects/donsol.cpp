@@ -403,7 +403,7 @@ int main(void){
     if (end == 1){
         cout << "You defeated the dungeon!\nCongratulations!" << endl;
     } else if (end == 0) {
-        if (input != "forcequit") {
+        if (input != "forcequit" && health >= 0) {
             cout << "This end shouldn't be possible, um... how did you break this?" << endl;
         }
     }
